@@ -11,12 +11,14 @@ $vms | %{
   $entry = @{
     "ResourceGroup" = $vm.ResourceGroupName
     "Name" = $vm.Name
+    "VmSize" = $vm.HardwareProfile.VmSize
     "Region" = $vm.Location
   }
 
   if ($vm.Tags.Count -gt 0) {
     $vm.Tags.Keys | %{
-       $entry[$_] = $vm.Tags.Item($_)
+       $key = $_.ToLower()
+       $entry[$key] = $vm.Tags.Item($_)
     }
   }
 
