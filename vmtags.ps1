@@ -12,7 +12,7 @@ $vms | %{
     "ResourceGroup" = $vm.ResourceGroupName
     "Name" = $vm.Name
     "VmSize" = $vm.HardwareProfile.VmSize
-    "Region" = $vm.Location
+    "AzureRegion" = $vm.Location
   }
 
   if ($vm.Tags.Count -gt 0) {
